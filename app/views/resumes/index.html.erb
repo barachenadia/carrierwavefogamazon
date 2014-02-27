@@ -15,7 +15,7 @@
     <% @resumes.each do |resume| %>
       <tr>
         <td><%= resume.name %></td>
-        <td><%= link_to "Download Resume", resume.image_url %></td>
+        <%= image_tag resume.image_url(:thumb) if resume.image? %>
         <td><%= button_to "Delete",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %></td>
       </tr>
     <% end %>
